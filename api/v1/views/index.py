@@ -11,7 +11,7 @@ def status():
     return jsonify(stat)
 
 
-@app_views.route('/api/v1/stats', strict_slashes=False)
+@app_views.route('/stats', strict_slashes=False)
 def stats():
     """retrieves the number of each objects by type"""
     models = {"User": "users", "Amenity": "amenities", "Place": "places",
