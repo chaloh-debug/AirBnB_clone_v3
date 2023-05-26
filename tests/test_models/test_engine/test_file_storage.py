@@ -117,16 +117,16 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t == 'db', "not testing file storagie")
     def test_get(self):
         storage = FileStorage()
-        city = City(name="Casablanca")
-        city.save()
-        var = storage.get("City", city.id)
-        self.assertEqual(city, var)
+        cities = City(name="Casablanca")
+        cities.save()
+        var = storage.get("City", cities.id)
+        self.assertEqual(cities, var)
 
     @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
     def test_count(self):
         storage = FileStorage()
-        city = City(name="Casablanca")
-        city.save()
+        cities = City(name="Casablanca")
+        cities.save()
         count = storage.count()
         self.assertEqual(len(storage.all()), count)
 
