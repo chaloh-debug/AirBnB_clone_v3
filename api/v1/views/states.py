@@ -25,7 +25,8 @@ def state_id(state_id=None):
         return jsonify(state.to_dict())
 
 
-@app_views.route('/states/<state_id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/states/<state_id>', methods=['DELETE'],
+                 strict_slashes=False)
 def delete_state(state_id=None):
     """deletes a state object"""
     if state_id is None:
@@ -43,7 +44,7 @@ def create_state():
     """Create a state object"""
     try:
         json_data = request.get_json()
-    except:
+    except exception as e:
         json_data = None
     if json_data is None:
         return 'Not a JSON', 400
@@ -61,7 +62,7 @@ def update_state(state_id=None):
         if state_id is None:
             abort(404)
         json_data = request.get_json()
-    except:
+    except exception as e:
         json_data = None
     if json_data is None:
         return 'Not a JSON', 400
