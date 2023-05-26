@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Index """
-from api.v1.views import app_views, storage
+from api.v1.views import app_views
 from flask import Flask, jsonify, Blueprint
 
 
