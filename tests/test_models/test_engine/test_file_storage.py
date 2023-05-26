@@ -116,6 +116,7 @@ class TestFileStorage(unittest.TestCase):
 
     @unittest.skipIf(models.storage_t == 'db', "not testing file storagie")
     def test_get(self):
+        """ Test get returns correct object """
         storage = FileStorage()
         cities = City(name="Casablanca")
         cities.save()
@@ -124,6 +125,7 @@ class TestFileStorage(unittest.TestCase):
 
     @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
     def test_count(self):
+        """ Test count correctly counts objects """
         storage = FileStorage()
         cities = City(name="Casablanca")
         cities.save()
