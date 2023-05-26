@@ -71,12 +71,12 @@ class DBStorage:
         Session = scoped_session(sess_factory)
         self.__session = Session
 
-    def get(self, cls, idd):
+    def get(self, cls, id):
         """Returns the object based on the class and its ID,
         or None if not found"""
         objs = self.all(cls)
         for k, v in objs.items():
-            if v.id == idd:
+            if v.id == id:
                 return v
         return None
 
