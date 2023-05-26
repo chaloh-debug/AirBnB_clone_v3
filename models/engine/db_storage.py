@@ -72,9 +72,10 @@ class DBStorage:
         self.__session = Session
 
     def get(self, cls, idd):
-        """Returns the object based on the class and its ID, or None if not found"""
+        """Returns the object based on the class and its ID,
+        or None if not found"""
         objs = self.all(cls)
-        for k,v in objs.items():
+        for k, v in objs.items():
             if v.id == idd:
                 return v
 
