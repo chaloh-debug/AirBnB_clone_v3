@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 """ Index """
-from api.v1.views import app_views, storage, State
-from flask import (Flask, jsonify, Blueprint, abort, request)
-
+from api.v1.views import app_views
+from flask import Flask, jsonify, Blueprint, abort, request
+from models import storage
+from models.state import State
 
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
 def states():
     """retrieve all state objects """
     all_states = []
-    for state in storage.all("State").values():
+    for state in storage.all(State).values():
         all_states.append(state.to_dict())
     return jsonify(all_states)
 
