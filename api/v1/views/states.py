@@ -74,6 +74,7 @@ def update_state(state_id=None):
     json_data.pop('id', None)
     json_data.pop('created_at', None)
     json_data.pop('updated_at', None)
-    state.to_dict().update(json_data)
+    for k, v in json_data.items():
+        setattr(state, k, v)
     state.save()
     return jsonify(state.to_dict()), 200
