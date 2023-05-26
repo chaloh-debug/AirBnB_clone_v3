@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Flask application """
-from flask import Flask
-from models import storage
 from api.v1.views import app_views
+from flask import Flask, Blueprint
+from models import storage
 from os import getenv
 
 app = Flask(__name__)
