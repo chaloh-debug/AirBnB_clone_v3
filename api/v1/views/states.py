@@ -5,6 +5,7 @@ from flask import Flask, jsonify, Blueprint, abort, request
 from models import storage
 from models.state import State
 
+
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
 def states():
     """retrieve all state objects """
