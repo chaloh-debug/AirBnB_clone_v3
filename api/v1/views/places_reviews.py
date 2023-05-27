@@ -57,17 +57,14 @@ def create_review(place_id):
         abort(400, "Not a JSON")
     if "user_id" not in data:
         abort(400, "Missing user_id")
-    if "name" not in data:
-        abort(400, "Misssing name")
+
+    user = storage.get(User, data['user_id'])
+    if not user:
+        abort(404)
+
     if "text" not in data:
         abort(400, "Missing text")
-    users = storage.all(User)
-    found = False
-    for user in users.values():
-        if user.id == data['user_id']:
-            found = True
-    if not found:
-        abort(404)
+
     review = Review(**data)
     review.place_id = place.id
     storage.new(review)
