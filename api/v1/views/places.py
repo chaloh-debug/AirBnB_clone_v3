@@ -61,7 +61,7 @@ def create_place(city_id):
     users = storage.all(User)
     found = False
     for user in users.values():
-        if user.id == data.user_id:
+        if user.id == data['user_id']:
             found = True
     if not found:
         abort(404)
