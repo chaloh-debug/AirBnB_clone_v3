@@ -90,7 +90,7 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_count(self):
         """ Test that get function returns correct object """
-        cities = City(name=:"Casablanca")
+        cities = City(name=: "Casablanca")
         cities.save()
         var = models.storage.get("User", cities.id)
         self.assertEqual(var, city)
