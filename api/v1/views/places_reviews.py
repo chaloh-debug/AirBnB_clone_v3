@@ -49,7 +49,7 @@ def delete_review(review_id):
                  strict_slashes=False)
 def create_review(place_id):
     """creates a review object """
-    place = storage.get(place, place_id)
+    place = storage.get(Place, place_id)
     if not place:
         abort(404)
     data = request.get_json()
