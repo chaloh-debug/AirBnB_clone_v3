@@ -45,8 +45,10 @@ def post_user():
     data = request.get_json()
     if not data:
         abort(400, "Not a JSON")
-    if "name" not in data:
-        abort(400, "Misssing name")
+    if "email" not in data:
+        abort(400, "Misssing email")
+    if "password" not in data:
+        abort(400, "Misssing password")
     user = User(**data)
     storage.new(user)
     storage.save()
