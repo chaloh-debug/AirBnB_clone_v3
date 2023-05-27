@@ -88,7 +88,7 @@ def put_review(review_id):
         abort(400, "Not a JSON")
 
     for k, v in data.items():
-        ignore_keys = ['id', 'place_id', 'user_id', 'created_at', 'updated_at']
+        ignore_keys = ['id', 'user_id', 'place_id', 'created_at', 'updated_at']
         if k not in ignore_keys:
             setattr(review, k, v)
 
